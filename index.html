@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Excel Viewer - Xem File Excel Online</title>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>📊 Excel Viewer</h1>
+        <p>Xem file Excel trực tuyến - Giữ nguyên định dạng</p>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Upload Section -->
+      <div class="upload-section">
+        <div class="upload-box" id="uploadBox">
+          <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <p class="upload-text">Kéo file Excel vào đây hoặc</p>
+          <label class="upload-button">
+            Chọn File
+            <input type="file" id="excelFile" accept=".xlsx,.xls,.csv,.ods" hidden />
+          </label>
+          <p class="upload-hint">Hỗ trợ: .xlsx, .xls, .csv, .ods</p>
+        </div>
+      </div>
+
+      <!-- Sheet Tabs -->
+      <div class="sheet-tabs-container" id="sheetTabsContainer" style="display: none;">
+        <div class="sheet-tabs" id="sheetTabs"></div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar" id="toolbar" style="display: none;">
+        <button class="btn btn-export" id="exportBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"></path>
+            <polyline points="23 3 23 9 17 9"></polyline>
+            <path d="M20 3L9 14"></path>
+          </svg>
+          Tải xuống
+        </button>
+        <div class="zoom-control">
+          <button class="btn btn-zoom" id="zoomOut">−</button>
+          <span class="zoom-level" id="zoomLevel">100%</span>
+          <button class="btn btn-zoom" id="zoomIn">+</button>
+        </div>
+      </div>
+
+      <!-- Table Container -->
+      <div class="table-wrapper" id="tableWrapper" style="display: none;">
+        <div class="table-container" id="tableContainer"></div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+      <!-- Loading -->
+      <div class="loading" id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Đang xử lý file...</p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>💡 Mở nguồn - Miễn phí - Xử lý 100% trên trình duyệt</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
